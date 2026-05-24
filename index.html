@@ -770,7 +770,7 @@ async function sendMsg(text) {
     ? `KNOWLEDGE BASE:\n\n${rel.map((c,i)=>`[Source ${i+1}]:\n${c}`).join('\n\n---\n\n')}\n\nAnswer ONLY from the knowledge base. If not found, say you don't have that info and offer to escalate to a human agent.`
     : 'No specific documents loaded. Answer helpfully from general knowledge.';
 
-  const system = `You are a ${S.persona} AI customer support agent for ${S.bizName}.\n\n${ctx}\n\nRules:\n- Be concise (2-5 sentences)\n- Use **bold** for key terms\n- Never invent prices, dates, or order details\n- Offer human escalation for complex issues`;
+  const system = `You are a ${S.persona} AI customer support agent for ${S.bizName}.\n\n${ctx}\n\nRules:\n- Be concise (2-5 sentences)\n- Use **bold** for key terms\n- Never invent prices, dates, or order details\n`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
